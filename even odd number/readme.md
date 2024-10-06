@@ -1,4 +1,3 @@
-
 # Odd & Even Number Finder
 
 ## Overview
@@ -8,6 +7,9 @@ The **Odd & Even Number Finder** is a simple web application that allows users t
 - 🔢 **Number Input**: Users can enter a number using an input field.
 - ✅ **Validation**: Alerts users if they attempt to check without entering a number.
 - 🎉 **Feedback**: Displays whether the entered number is "Odd" or "Even."
+
+## Live Demo
+You can check out the live version of the Odd & Even Number Finder here: [Live Demo](https://js-even-odd-num.vercel.app/)
 
 ## Getting Started
 1. Clone the repository or download the ZIP file.
@@ -27,5 +29,3 @@ The Odd & Even Number Finder is a straightforward example of how to handle user 
 
 ## Author
 [Ayesha Shakoor](https://github.com/ashuu03449)
-
---- 

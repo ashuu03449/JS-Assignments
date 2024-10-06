@@ -1,4 +1,4 @@
-# Password Toggle Example
+# 🔑 Password Toggle Example
 
 ## Overview
 The **Password Toggle Example** is a simple web application that allows users to toggle the visibility of their password input. Users can enter a password, and by checking a checkbox, they can choose to view their password as plain text instead of asterisks.
@@ -26,4 +26,7 @@ The **Password Toggle Example** is a simple web application that allows users to
 The Password Toggle Example is a simple and effective tool for understanding how to manipulate form elements with JavaScript. It demonstrates how user interactions can be handled to enhance user experience.
 
 ## Author
-[ashuu03449]
+[Ayesha Shakoor](https://github.com/ashuu03449)
+
+## Live Demo
+You can view the live demo of this project at [Password Toggle Example](https://key-check-sooty.vercel.app/).
