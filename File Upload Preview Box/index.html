@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <script>
+        function Upload() {
+            var file = document.getElementById('file').files[0]; // File object le rahe hain
+            var reader = new FileReader(); // FileReader ka object bana rahe hain
+
+            // Jab file load ho jaye, ye function trigger hoga
+            reader.onload = function(e) {
+                var box = document.getElementById('show');
+                box.style.backgroundImage = "url(" + e.target.result + ")"; // File ko backgroundImage set kar rahe hain
+            }
+
+            if (file) {
+                reader.readAsDataURL(file); // File ko Data URL ke tor par read karte hain
+            } else {
+                alert("Please select a file.");
+            }
+        }
+    </script>
+        
+    <style>
+        #show{ 
+            width: 200px; 
+            height: 200px; 
+            border: 1px solid blue; 
+            margin: 50px auto; 
+            background-size: cover; 
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+  
+<center>
+    <h1 style="color: blue;">File Upload Preview Box</h1>
+    <div id="show"></div> <!-- Preview box -->
+    <br>
+    <input type="file" id="file" accept=".jpg, .png" onchange="Upload()"> <!-- Accept .jpg aur .png files -->
+</center>
+
+</body>
+</html>

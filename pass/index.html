@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Toggle Example</title>
+    <style>
+        /* Simple styles for better visualization */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+     
+    </style>
+</head>
+<body>
+    
+       
+        
+<center>
+    <h1 style="color: blue;">Password Input Visibility Toggle</h1>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password"> <!-- Password input -->
+    <input type="checkbox" id="show-password"> <!-- Checkbox to toggle password visibility -->
+   
+</center>
+    <script>
+        // JavaScript to toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const checkbox = document.getElementById('show-password');
+
+        checkbox.addEventListener('change', function() {
+            // Toggle the type attribute based on checkbox status
+            passwordInput.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <form id="frm" class="w-[60%] mx-auto h-auto border-2 border-solid border-blue-500 my-5 p-10 rounded-md bg-white shadow-lg">
+        <h1 class="text-center text-2xl font-bold text-blue-600 mb-6">Input-Based Table Generator</h1>
+
+        <input type="number" name="table_num" id="table" placeholder="Enter table number" class="w-full rounded-md mt-5 bg-blue-50 border border-blue-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <br><br>
+
+        <input type="number" name="start" id="start" placeholder="Start from" class="w-full mt-5 bg-blue-50 border border-blue-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <br><br>
+
+        <input type="number" name="at-end" id="end" placeholder="End at" class="w-full mt-5 bg-blue-50 border border-blue-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <br><br>
+
+        <input type="submit" value="Generate Table" class="w-full mt-5 bg-blue-600 text-white rounded-md px-4 py-3 hover:bg-blue-700 transition duration-200">
+        <br><br>
+
+        <div id="output" class="h-auto w-full px-4 py-3 mt-5 bg-blue-100 rounded-md shadow-inner"></div>
+    </form>
+
+    <script>
+        let form = document.getElementById('frm');
+        let outputDiv = document.getElementById('output');
+        
+        form.onsubmit = function(event) {
+            event.preventDefault();
+
+            let table_num = document.getElementById('table').value;
+            let start_num = parseInt(document.getElementById('start').value);
+            let end_num = parseInt(document.getElementById('end').value);
+            
+            outputDiv.innerHTML = '';
+
+            for (let i = start_num; i <= end_num; i++) {
+                let text = `<p class="text-center py-2 px-4 bg-white rounded-md mb-2 text-blue-800 shadow-md">${table_num} * ${i} = ${table_num * i}</p>`;
+                outputDiv.innerHTML += text;
+            }
+        }
+    </script>
+</body>
+</html>

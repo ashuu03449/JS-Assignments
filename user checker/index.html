@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication Example</title>
+</head>
+<body>
+    <!-- Input field for entering the username -->
+    <input type="text" id="username" placeholder="Username">
+    
+    <!-- Button to trigger the username check -->
+    <button onclick="Check()">Check</button>
+    
+    <script>
+        // Function to check the username
+        function Check() {
+            // Get the value from the username input field
+            let username = document.getElementById('username').value;
+            
+            // Check if the username matches 'admin' and set the result message accordingly
+            let result = username == "admin" ? 'User found' : 'User not found';
+            
+            // Display the result in an alert
+            window.alert(result);
+        }
+    </script>
+</body>
+</html>

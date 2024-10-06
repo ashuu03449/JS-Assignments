@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd & Even Number Finder</title>
+</head>
+<body>
+    <h1>Odd & Even Number Finder</h1>
+    <hr>
+    
+    <label for="userInput" style="color: rgb(29, 97, 139);">Enter Number:</label> <br>
+    <input type="number" id="userInput" placeholder="Enter Number">
+    <br> <br>
+    <button onclick="Check()" id="btn">Check Number</button>
+    <script>
+         var input = document.getElementById('userInput');
+        let btn = document.getElementById('btn')
+        input.style.border  = 'none'
+        input.style.border = '1px solid #ccc'
+        input.style.padding = '10px'
+        btn.style.padding = '10px'
+        btn.style.border = 'none'
+        btn.style.border  = '1px solid #ccc'
+        function Check() {
+            input = document.getElementById('userInput').value;
+
+            // Check if input is empty
+            if (input === "") {
+                window.alert("Please enter a number.");
+                return; // Exit the function if no number is entered
+            }
+
+            // Check if the number is even or odd
+            let result = input % 2 == 0 ? 'Even Number' : 'Odd Number';
+            window.alert(result);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text with Input</title>
+</head>
+<body>
+
+    <h1 id="heading">Original Text</h1>
+
+    <!-- Input box for user to enter text -->
+    <input type="text" id="userInput" placeholder="Enter new text">
+
+    <!-- Button to trigger the text change -->
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            // Getting the value from the input box
+            var inputText = document.getElementById('userInput').value;
+
+            // Selecting the h1 element and changing its text
+            document.getElementById('heading').innerHTML = inputText;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> <!-- Animation library -->
+</head>
+<body>
+    <header style="font-family: sans-serif;">
+        <center>Ashu Text Editor ver.1.0.0</center> <!-- Header title -->
+    </header>
+    <fieldset id="code-box" class="animate__animated animate__bounceInLeft">
+        <legend>Type Your Code Here </legend> <!-- Input section title -->
+        <textarea id="code"> <!-- Textarea for code input -->
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+            </head>
+            <body>
+                
+            </body>
+            </html>
+        </textarea>
+    </fieldset>
+    <fieldset id="show" class="animate__animated animate__bounceInRight">
+        <legend>Your Code Result </legend> <!-- Result section title -->
+        <div id="result"> <!-- Container for result -->
+        </div>
+    </fieldset>
+    <center>
+        <button id="run-btn" onclick="runCode()">Run Code</button> <!-- Button to run code -->
+        <button id="icon" onclick="back()">Return to Code!</button> <!-- Button to return to input -->
+    </center>
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>
