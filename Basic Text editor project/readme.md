@@ -11,6 +11,9 @@ The editor features a clean, minimalistic interface and animations for a smooth 
 - 📱 **Responsive Design**: The text editor adapts to various screen sizes for a better user experience.
 - 🔄 **Toggle Functionality**: Easily switch between the code input and the result view.
 
+## Live Demo
+You can check out the live version of the Ashu Text Editor here: [Live Demo](https://text-editor-js-alpha.vercel.app/)
+
 ## Getting Started
 Follow these steps to get started with the Ashu Text Editor:
 
