@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #0d47a1, #2196f3, #64b5f6, #bbdefb);
+}
+
+.innerBox {
+    width: 60%;
+    padding: 30px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+form h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1976d2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+form .add {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+form .todoVal {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form .todoVal:focus {
+    outline: none;
+    border-color: #42a5f5;
+    box-shadow: 0px 0px 8px rgba(66, 165, 245, 0.5);
+}
+
+form .btn {
+    padding: 10px 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+form .btn:hover {
+    background-color: #1976d2;
+}
+
+.todo-items {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: #b3e5fc;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    overflow-x: auto;
+    gap: 10px;
+    font-size: 18px;
+    color: #333;
+    background-color: #e1ebfe;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.todo-list li:hover  {
+    background-color: #2196f3;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-list button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.todo-list button:hover {
+    color: #1976d2;
+}
+
+.update-btn {
+    color: #4caf50;
+}
+
+.delete-btn {
+    color: #f44336;
+}
+.todo-list li:hover .icon-container button {
+    color: black;
+}
+
+
+@media (max-width:768px) {
+    .innerBox {
+        width: 75%;
+        padding: 20px;
+    }
+    
+    form .btn {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+    form .todoVal {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:500px) {
+    .innerBox {
+        width: 85%;
+        padding: 15px;
+    }
+    form .btn {
+        font-size: 18px;
+        padding: 9px 18px;
+    }
+}
+@media(max-width:900px){
+    .innerBox {
+        width: 80%;
+    }
+}
+@media (max-width:360px) {
+    .innerBox {
+        width: 90%;
+        padding: 12px;
+    }
+    form {
+        padding: 10px;
+    }
+    form .todoVal {
+        font-size: 14px;
+    }
+}
+
+@media (max-width:300px){
+    .innerBox {
+        width: 90%;
+        padding: 2px;
+    }
+    form {
+        padding: 8px 8px;
+    }
+    form .todoVal {
+        font-size: 14px;
+    }
+    form .add {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+@media (max-width: 250px) {
+    .innerBox {
+        width: 90%;
+        padding: 2px;
+    }
+    form {
+        padding: 8px 8px;
+    }
+    form .todoVal {
+        font-size: 12px; /* Decrease font size */
+        padding: 8px; /* Decrease padding for input */
+    }
+    form .btn {
+        font-size: 12px; /* Decrease font size */
+        padding: 6px 12px; /* Decrease padding for button */
+    }
+    form .add {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .todo-items {
+        margin-top: 20px;
+        padding: 5px 8px;
+        background-color: #b3e5fc;
+        border-radius: 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .todo-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 8px;
+        font-size: 14px;
+        margin-bottom: 9px;
+        color: #333;
+        overflow-x: auto;
+        background-color: #e1ebfe;
+        border-radius: 6px;
+        transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
+    .update-btn {
+      font-size: 10px;
+    }
+    
+    .delete-btn {
+font-size: 10px;    }
+
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="main">
+        <div class="innerBox"> 
+            <form>
+                <h1>Todo List</h1>
+                <div class="add">
+                    <input type="text" value="" class="todoVal" placeholder="Add a new task..." aria-label="Add a new task">
+                    <button class="btn"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="todo-items" style="display: none;"> <!-- Hide by default -->
+                    <ol class="todo-list"></ol>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const todoList = document.querySelector('.todo-list');
+        const listVal = document.querySelector('.todoVal');
+        const todoItemsContainer = document.querySelector('.todo-items'); // Reference to the container
+
+        document.querySelector('.btn').addEventListener('click', (event) => {
+            event.preventDefault();
+            addTodoList();
+        });
+
+        function addTodoList() {
+            let inputVal = listVal.value.trim();
+            if (inputVal) {
+                let para = document.createElement('li');
+                para.classList.add('todo-item');
+                para.innerText = inputVal;
+
+                // Create container for icons
+                let iconContainer = document.createElement('span');
+                iconContainer.classList.add('icon-container');
+
+                // Update Button
+                let updateBtn = document.createElement('button');
+                updateBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+                updateBtn.classList.add('update-btn');
+                updateBtn.onclick = function(event) {
+                    event.preventDefault();
+                    updateItem(para);
+                };
+
+                // Delete Button
+                let dltBtn = document.createElement('button');
+                dltBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+                dltBtn.classList.add('delete-btn');
+                dltBtn.onclick = function() {
+                    dltItem(para);
+                };
+
+                // Append buttons to the icon container
+                iconContainer.appendChild(updateBtn);
+                iconContainer.appendChild(dltBtn);
+
+                // Append the icon container to the list item
+                para.appendChild(iconContainer);
+
+                // Add the list item to the todo list
+                todoList.appendChild(para);
+                listVal.value = ""; // Clear the input
+
+                // Show the todo-items container when an item is added
+                todoItemsContainer.style.display = "block";
+            } else {
+                alert('Please enter a task before adding.');
+            }
+        }
+
+        function updateItem(para) {
+            let newItem = prompt('Please enter the updated task:', para.firstChild.nodeValue);
+            if (newItem) {
+                para.firstChild.nodeValue = newItem;
+            }
+        }
+
+        function dltItem(para) {
+            para.remove();
+
+            // Hide the todo-items container if no items remain
+            if (todoList.children.length === 0) {
+                todoItemsContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
