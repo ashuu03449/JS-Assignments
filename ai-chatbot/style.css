@@ -231,12 +231,76 @@ body.light .user-chatarea, body.light .ai-chatarea {
     #theme{
         width: 30%;
     }
-    .prompt-area input::placeholder{
-        font-size: 14px;
-       
+ 
+    
+}
+@media (max-width:480px){
+    .prompt-area textarea,
+    input,
+    button{
+        width: 45%;
+        height: 55px;
     }
-    .prompt-area input{
-        width: 60%;
-        height: 60px;
+    ::placeholder{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 300px) {
+    .chat-container {
+        padding: 5px;
+        font-size: 16px; /* Smaller font size */
+    }
+
+    .user-chatbox,
+    .ai-chatbox {
+        padding: 3px 5px;
+        width: 100%; /* Full width for better readability */
+        left: 0; /* Align to the left for narrow screens */
+    }
+
+    .prompt-area {
+        align-items: stretch; /* Full width of elements */
+        gap: 5px; /* Smaller gap */
+    }
+
+    .prompt-area textarea {
+        width: 70%; /* Full width for input */
+        height: 50px; /* Adjust height */
+        font-size: 16px;
+        padding: 10px; /* Smaller padding */
+    }
+
+::placeholder{
+    padding: 10px 0px;
+  
+}
+
+    #theme {
+        width: 50%; /* Wider dropdown for easier selection */
+    }
+
+    .theme-selector {
+        justify-content: center;
+        margin-bottom: 10px; /* Spacing from chat container */
+    }
+
+    ::placeholder {
+        font-size: 12px; /* Smaller placeholder text */
+    }
+
+    .chooseimg {
+        width: 100%; /* Ensure uploaded image fits the screen */
+        max-height: 200px; /* Limit image height */
+        object-fit: cover;
+    }
+}
+
+@media (max-width:200px){
+    .prompt-area{
+        flex-wrap: wrap;
+    }
+    .prompt-area textarea{
+        width: 95%;
     }
 }
