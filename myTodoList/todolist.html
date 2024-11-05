@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", serif;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .innerBox {
+        width: 60%;
+        height: auto;
+        margin-top:-140px;
+        background-color: rgba(255, 255, 255, 0.199);
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 4px 30px rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+    }
+
+    .innerBox h1 {
+        text-align: center;
+        font-size: 30px;
+        color: yellow;
+    }
+
+    .taskinput {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+
+    .taskinput input {
+        width: 92%;
+        padding: 14px 10px;
+        border-radius: 15px;
+        border: transparent;
+    }
+
+    .taskinput .btn {
+        padding: 8px 13px;
+        color: black;
+        background-color: yellow;
+        border: none;
+        font-size: 22px;
+
+        font-weight: bold;
+        transition: all 0.5s ease-in-out;
+        border-radius: 10px;
+    }
+
+    .taskinput .btn:hover {
+        background-color: black;
+        color: yellow;
+        opacity: 0.8;
+    }
+
+    .todoContainer {
+    width: 100%;
+    max-height: 200px; /* Set a maximum height for the todoContainer */
+    height: auto;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: yellow;
+    display: none; /* Keep this for when there are no tasks */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+
+    .main-todo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        background-color: black;
+        padding: 5px 8px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        color: yellow;
+        white-space: nowrap;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .dltBtn,
+    .editBtn {
+        border: none;
+        color: black;
+        font-size: 18px;
+        background-color: yellow;
+        padding: 5px 10px;
+        border-radius: 50%;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        .innerBox {
+            width: 70%;
+            padding: 15px;
+        }
+
+        .innerBox h1 {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .innerBox {
+            width: 85%;
+            padding: 10px;
+        }
+
+        .innerBox h1 {
+            font-size: 24px;
+        }
+
+        .taskinput input {
+            width: 100%;
+            padding: 14px 10px;
+            border-radius: 15px;
+        }
+
+        .taskinput .btn {
+            font-size: 18px;
+            padding: 8px 13px;
+            border-radius: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .innerBox {
+            width: 90%;
+            margin-top: -100px;
+            padding: 20px 10px;
+        }
+
+        .innerBox h1 {
+            font-size: 20px;
+        }
+        .taskinput {
+            gap: 5px;
+        }
+        .taskinput input {
+            width: 90%;
+            padding: 11px 10px;
+            border-radius: 15px;
+        }
+        .taskinput input::placeholder{
+            font-size: 14px;
+        }
+
+        .taskinput .btn {
+            font-size: 16px;
+            padding: 8px 11px;
+            border-radius: 10px;
+
+        }
+
+        .main-todo {
+         gap: 50px;
+        }
+
+        .main-todo li {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .dltBtn,
+        .editBtn {
+            font-size: 16px;
+            padding: 4px 6px;
+        }
+    } 
+    @media (max-width: 480px) {
+        .taskinput input {
+            width: 93%;
+            padding: 11px 6px;
+            border-radius: 15px;
+        }
+        .taskinput input::placeholder{
+            font-size: 12px;
+        }
+    }
+</style>
+
+<body>
+    <section>
+        <div class="innerBox">
+           <form >
+            <h1>Todo List</h1>
+            <div class="taskinput">
+                <input type="text" id="input" placeholder="add your task here...">
+                <button class="btn"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="todoContainer">
+                           </div>
+
+           </form>
+        </div>
+    </section>
+    <script>
+      let inputtaskValue = document.getElementById('input');
+let mainTodoElement = document.querySelector('.todoContainer');
+let btn = document.querySelector('.btn');
+
+// Tasks ko Local Storage se fetch karo
+const getTodoListFromLocal = () => {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+}
+
+let todoTask = getTodoListFromLocal();
+if (todoTask.length === 0) {
+    mainTodoElement.style.display = "none";
+}
+
+// Har task ke liye DOM mein element add karo
+const addTodoDynamicElem = (currElement) => {
+    let todoDiv = document.createElement('div');
+    todoDiv.classList.add('main-todo');
+    todoDiv.innerHTML = `
+        <li>${currElement}</li>
+        <div>
+            <button class="dltBtn"><i class="fa-solid fa-trash"></i></button>
+            <button class="editBtn"><i class="fa-solid fa-pen-to-square"></i></button>
+        </div>
+    `;
+    mainTodoElement.appendChild(todoDiv);
+    mainTodoElement.style.display = "block";
+    inputtaskValue.value = '';
+}
+
+// Task add karne ke function mein DOM aur Local Storage ko update karo
+const addTodoList = (e) => {
+    e.preventDefault();
+    const todoListVal = inputtaskValue.value.trim();
+    if (todoListVal === "") {
+        alert('Please enter a task');
+        return;
+    }
+    if (!todoTask.includes(todoListVal)) {
+        todoTask.push(todoListVal);
+        todoTask = [...new Set(todoTask)];
+        localStorage.setItem('tasks', JSON.stringify(todoTask));
+        addTodoDynamicElem(todoListVal);
+    } else {
+        alert('Task already added');
+    }
+}
+
+// Page load pe tasks show karna
+const showTodoList = () => {
+    todoTask.forEach((currElement) => {
+        addTodoDynamicElem(currElement);
+    });
+}
+showTodoList();
+
+// Task ko delete karna (Local Storage aur DOM se)
+const removeTodoElement = (e) => {
+    const todoItem = e.target.closest('.main-todo');
+    if (todoItem) {
+        const todoListContent = todoItem.querySelector('li').innerText;
+        todoTask = todoTask.filter(task => task !== todoListContent);
+        localStorage.setItem('tasks', JSON.stringify(todoTask));
+        todoItem.remove();
+    }
+    if (todoTask.length === 0) {
+            mainTodoElement.style.display = "none"; // Hide the container if no tasks are left
+        }
+}
+
+// Task ko edit karna (Local Storage aur DOM mein update karna)
+const editTodoElement = (e) => {
+    const todoItem = e.target.closest('.main-todo');
+    if (todoItem) {
+        const todoListContent = todoItem.querySelector('li').innerText;
+        const newTask = prompt("Edit your task:", todoListContent);
+        if (newTask && newTask.trim() !== "") {
+            const taskIndex = todoTask.indexOf(todoListContent);
+            if (taskIndex > -1) {
+                todoTask[taskIndex] = newTask.trim();
+                localStorage.setItem('tasks', JSON.stringify(todoTask));
+                todoItem.querySelector('li').innerText = newTask.trim();
+            }
+        }
+    }
+}
+
+// Delete aur Edit buttons pe event listeners lagao
+mainTodoElement.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.closest('.dltBtn')) {
+        removeTodoElement(e);
+    } else if (e.target.closest('.editBtn')) {
+        editTodoElement(e);
+    }
+});
+
+// Add button pe click pe task add karna
+btn.addEventListener('click', (e) => {
+    addTodoList(e);
+});
+
+    </script>
+</body>
+</html>
